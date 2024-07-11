@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jpabook.jpashop2.MemberRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-07-10T10:35:07" hostname="DESKTOP-VRJVUQG" time="0.449">
+  <properties/>
+  <testcase name="testMember" classname="jpabook.jpashop2.MemberRepositoryTest" time="0.449"/>
+  <system-out><![CDATA[19:35:04.252 [Test worker] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.1)
+
+2024-07-10T19:35:04.490+09:00  INFO 3064 --- [jpashop2] [    Test worker] jpabook.jpashop2.MemberRepositoryTest    : Starting MemberRepositoryTest using Java 21.0.3 with PID 3064 (started by User in C:\Users\User\Desktop\인프런 자료\spring boot와 JPA활용1\spring boot와 JPA활용 1 복습\jpashop2)
+2024-07-10T19:35:04.491+09:00  INFO 3064 --- [jpashop2] [    Test worker] jpabook.jpashop2.MemberRepositoryTest    : No active profile set, falling back to 1 default profile: "default"
+2024-07-10T19:35:04.978+09:00  INFO 3064 --- [jpashop2] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-10T19:35:05.001+09:00  INFO 3064 --- [jpashop2] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
+2024-07-10T19:35:05.494+09:00  INFO 3064 --- [jpashop2] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-10T19:35:05.546+09:00  INFO 3064 --- [jpashop2] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-10T19:35:05.586+09:00  INFO 3064 --- [jpashop2] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-10T19:35:05.836+09:00  INFO 3064 --- [jpashop2] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-10T19:35:05.855+09:00  INFO 3064 --- [jpashop2] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-10T19:35:05.928+09:00  INFO 3064 --- [jpashop2] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:tcp://localhost/~/jpashop2 user=SA
+2024-07-10T19:35:05.929+09:00  INFO 3064 --- [jpashop2] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-10T19:35:06.609+09:00  INFO 3064 --- [jpashop2] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-10T19:35:06.620+09:00 DEBUG 3064 --- [jpashop2] [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists member cascade 
+2024-07-10T19:35:06.624+09:00  INFO 3064 --- [jpashop2] [    Test worker] p6spy                                    : #1720607706624 | took 0ms | statement | connection 1| url jdbc:h2:tcp://localhost/~/jpashop2
+
+    drop table if exists member cascade 
+
+    drop table if exists member cascade ;
+2024-07-10T19:35:06.624+09:00 DEBUG 3064 --- [jpashop2] [    Test worker] org.hibernate.SQL                        : 
+    drop sequence if exists member_seq
+2024-07-10T19:35:06.625+09:00  INFO 3064 --- [jpashop2] [    Test worker] p6spy                                    : #1720607706625 | took 0ms | statement | connection 1| url jdbc:h2:tcp://localhost/~/jpashop2
+
+    drop sequence if exists member_seq
+
+    drop sequence if exists member_seq;
+2024-07-10T19:35:06.631+09:00 DEBUG 3064 --- [jpashop2] [    Test worker] org.hibernate.SQL                        : 
+    create sequence member_seq start with 1 increment by 50
+2024-07-10T19:35:06.632+09:00  INFO 3064 --- [jpashop2] [    Test worker] p6spy                                    : #1720607706632 | took 0ms | statement | connection 2| url jdbc:h2:tcp://localhost/~/jpashop2
+
+    create sequence member_seq start with 1 increment by 50
+
+    create sequence member_seq start with 1 increment by 50;
+2024-07-10T19:35:06.635+09:00 DEBUG 3064 --- [jpashop2] [    Test worker] org.hibernate.SQL                        : 
+    create table member (
+        id bigint not null,
+        username varchar(255),
+        primary key (id)
+    )
+2024-07-10T19:35:06.636+09:00  INFO 3064 --- [jpashop2] [    Test worker] p6spy                                    : #1720607706636 | took 0ms | statement | connection 2| url jdbc:h2:tcp://localhost/~/jpashop2
+
+    create table member (
+        id bigint not null,
+        username varchar(255),
+        primary key (id)
+    )
+
+    create table member (
+        id bigint not null,
+        username varchar(255),
+        primary key (id)
+    );
+2024-07-10T19:35:06.639+09:00  INFO 3064 --- [jpashop2] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-10T19:35:06.774+09:00  WARN 3064 --- [jpashop2] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-10T19:35:07.143+09:00  INFO 3064 --- [jpashop2] [    Test worker] jpabook.jpashop2.MemberRepositoryTest    : Started MemberRepositoryTest in 2.901 seconds (process running for 3.896)
+2024-07-10T19:35:07.547+09:00 DEBUG 3064 --- [jpashop2] [    Test worker] org.hibernate.SQL                        : 
+    select
+        next value for member_seq
+2024-07-10T19:35:07.557+09:00  INFO 3064 --- [jpashop2] [    Test worker] p6spy                                    : #1720607707557 | took 6ms | statement | connection 3| url jdbc:h2:tcp://localhost/~/jpashop2
+select next value for member_seq
+select next value for member_seq;
+2024-07-10T19:35:07.611+09:00  INFO 3064 --- [jpashop2] [    Test worker] p6spy                                    : #1720607707611 | took 0ms | rollback | connection 3| url jdbc:h2:tcp://localhost/~/jpashop2
+
+;
+]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\User\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.17\e3c251a39dc90badaf71c83427ba46840f219d8d\byte-buddy-agent-1.14.17.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>
