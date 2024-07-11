@@ -14,6 +14,8 @@ public class Member {
     @Id @GeneratedValue
     @Column(name = "member_id")
     private Long id;
+
+    @Column(unique = true)
     private String name;
 
     @Embedded
