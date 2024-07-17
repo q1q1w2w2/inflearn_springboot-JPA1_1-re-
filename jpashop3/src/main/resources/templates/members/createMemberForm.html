@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <form action="/members/new" method="post" th:object="${memberForm}">
+        <div>
+            <label>이름</label>
+            <input type="text" th:field="*{name}" placeholder="이름을 입력하세요">
+        </div>
+
+<!--        <div>-->
+<!--            <label>나이</label>-->
+<!--            <input type="text" th:field="*{age}" placeholder="나이를 입력하세요">-->
+<!--        </div>-->
+
+        <div>
+            <label>도시</label>
+            <input type="text" th:field="*{city}" placeholder="도시를 입력하세요">
+        </div>
+        <button type="submit" class="btn btn-danger">Submit</button>
+    </form>
+
+</div>
+</body>
+</html>

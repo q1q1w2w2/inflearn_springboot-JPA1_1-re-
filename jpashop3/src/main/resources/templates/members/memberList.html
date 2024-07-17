@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>이름</th>
+<!--                    <th>나이</th>-->
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="member : ${members}">
+                    <th th:text="${member.getId}"></th>
+                    <th th:text="${member.getName()}"></th>
+<!--                    <th th:text="${member.getAge()}"></th>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
