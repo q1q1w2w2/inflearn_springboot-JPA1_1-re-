@@ -12,15 +12,19 @@
                 <tr>
                     <th>#</th>
                     <th>이름</th>
-<!--                    <th>나이</th>-->
+                    <th>도시</th>
+                    <th>거리</th>
+                    <th>우편번호</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr th:each="member : ${members}">
-                    <th th:text="${member.getId}"></th>
-                    <th th:text="${member.getName()}"></th>
-<!--                    <th th:text="${member.getAge()}"></th>-->
+                    <td th:text="${member.id}"></td>
+                    <td th:text="${member.name}"></td>
+                    <td th:text="${member.address.city}"></td>
+                    <td th:text="${member.address.street}"></td>
+                    <td th:text="${member.address.zipcode}"></td>
                 </tr>
             </tbody>
         </table>

@@ -1,6 +1,7 @@
 package jpabook.jpashop.controller;
 
 import jakarta.validation.constraints.NotEmpty;
+import jpabook.jpashop.domain.Address;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,5 +13,7 @@ public class MemberForm {
     private String name;
     private int age;
     private String city;
+    private String street;
+    private String zipcode;
 
 }

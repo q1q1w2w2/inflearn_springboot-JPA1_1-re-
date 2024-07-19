@@ -12,14 +12,19 @@
             <input type="text" th:field="*{name}" placeholder="이름을 입력하세요">
         </div>
 
-<!--        <div>-->
-<!--            <label>나이</label>-->
-<!--            <input type="text" th:field="*{age}" placeholder="나이를 입력하세요">-->
-<!--        </div>-->
-
         <div>
             <label>도시</label>
             <input type="text" th:field="*{city}" placeholder="도시를 입력하세요">
+        </div>
+
+        <div>
+            <label>거리</label>
+            <input type="text" th:field="*{street}" placeholder="거리를 입력하세요">
+        </div>
+
+        <div>
+            <label>우편번호</label>
+            <input type="text" th:field="*{zipcode}" placeholder="우편번호를 입력하세요">
         </div>
         <button type="submit" class="btn btn-danger">Submit</button>
     </form>
