@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <form action="/order" method="post">
+        <div>
+            <label>주문회원</label>
+            <select name="memberId" id="member">
+                <option value="">회원선택</option>
+                <option th:each="member : ${members}"
+                        th:value="${member.id}"
+                        th:text="${member.name}" />
+            </select>
+        </div>
+
+        <div>
+            <label>주문상품</label>
+            <select name="itemId" id="item">
+                <option value="">상품선택</option>
+                <option th:each="item : ${items}"
+                        th:value="${item.id}"
+                        th:text="${item.name}" />
+            </select>
+        </div>
+
+        <div>
+            <label for="count">수량</label>
+            <input type="number" name="count" id="count" placeholder="수량을 입력하세요">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+</body>
+</html>

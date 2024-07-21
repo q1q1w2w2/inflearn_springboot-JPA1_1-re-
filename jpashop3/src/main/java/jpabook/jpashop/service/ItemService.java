@@ -29,5 +29,12 @@ public class ItemService {
         return itemRepository.findById(itemId);
     }
 
+    @Transactional
+    public void updateItem(Long id, String name, int price, int stockQuantity) {
+        Item item = itemRepository.findById(id);
+        item.setName(name);
+        item.setPrice(price);
+        item.setStockQuantity(stockQuantity);
+    }
 
 }
