@@ -1,6 +1,7 @@
 package jpabook.jpashop.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jpabook.jpashop.domain.Member;
@@ -13,18 +14,26 @@ import java.util.List;
 import static jpabook.jpashop.domain.QMember.*;
 
 @Repository
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class MemberRepository {
 
     private final EntityManager em;
-    private final JPAQueryFactory queryFactory;
+    private JPAQueryFactory queryFactory;
+
+//    private final JPAQueryFactory queryFactory;
 
 //    JPAQueryFactory queryFactory = new JPAQueryFactory(em);
+    // 컴파일 시점에 em이 초기화되지 않음 -> 생성자로 초기화 / @PostConstruct로 초기화
 
-    public MemberRepository(EntityManager em) {
-        this.em = em;
+    @PostConstruct
+    public void init() {
         this.queryFactory = new JPAQueryFactory(em);
     }
+
+//    public MemberRepository(EntityManager em) {
+//        this.em = em;
+//        this.queryFactory = new JPAQueryFactory(em);
+//    }
 
     public Long save(Member member) {
         em.persist(member);
