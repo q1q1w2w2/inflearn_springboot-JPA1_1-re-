@@ -1,5 +1,6 @@
 package jpabook.jpashop.repository;
 
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;
@@ -42,12 +43,43 @@ public class OrderRepository {
 //
 //        // 주문 상태 검색
 //        if (orderSearch.getOrderStatus() != null) {
-//            queryFactory.select(o)
+//            return queryFactory.selectFrom(o)
 //                    .join(m)
-//
+//                    .where(
+//                            m.name.contains(orderSearch.getMemberName())
+//                                    .and(o.status.eq(orderSearch.getOrderStatus()))
+//                    )
+//                    .fetch();
+//        } else {
+//            return queryFactory.selectFrom(o)
+//                    .join(m)
+//                    .where(
+//                            m.name.contains(orderSearch.getMemberName())
+//                    )
+//                    .fetch();
 //        }
-//
 //    }
+
+    public List<Order> findAll(OrderSearch orderSearch) {
+        QMember m = QMember.member;
+        QOrder o = QOrder.order;
+
+        BooleanBuilder builder = new BooleanBuilder();
+
+        if (orderSearch.getOrderStatus() != null) {
+            builder.and(o.status.eq(orderSearch.getOrderStatus()));
+        }
+        if(StringUtils.hasText(orderSearch.getMemberName())) {
+//            builder.and(m.name.like("%" + orderSearch.getMemberName() + "%"));
+            builder.and(m.name.contains(orderSearch.getMemberName()));
+        }
+        return queryFactory
+                .selectFrom(o)
+                .join(o.member, m)
+                .where(builder)
+                .limit(1000)
+                .fetch();
+    }
 
     public List<Order> findAllByString(OrderSearch orderSearch) {
         //language=JPAQL
@@ -83,4 +115,5 @@ public class OrderRepository {
         }
         return query.getResultList();
     }
+
 }
